@@ -1,0 +1,19 @@
+{
+  "name": "exampleskill",
+  "version": "1.0.0",
+  "description": "An Alexa Skill hosted with heroku to test how using the ask-sdk without AWS works.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amino7/ExampleSkill.git"
+  },
+  "author": "Amin Uzdenov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Amino7/ExampleSkill/issues"
+  },
+  "homepage": "https://github.com/Amino7/ExampleSkill#readme"
+}
