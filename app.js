@@ -1,8 +1,9 @@
   const Alexa = require('ask-sdk');
   const express = require('express');
   const bodyParser = require('body-parser');
-  const http = require("http");
+  const http = require('http');
   const verifier = require('alexa-verifier-middleware')
+  const axios = require('axios');
   const app = express();
 
   let skill;
