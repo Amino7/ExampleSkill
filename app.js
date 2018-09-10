@@ -2,10 +2,11 @@
   const express = require('express');
   const bodyParser = require('body-parser');
   const http = require("http");
+  const verifier = require('alexa-verifier-middleware')
   const app = express();
 
   let skill;
-
+  app.use(verifier)
   app.use(bodyParser.json());
   app.post('/', function(req, res) {
 
