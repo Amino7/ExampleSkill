@@ -1,6 +1,7 @@
   const Alexa = require('ask-sdk');
   const express = require('express');
   const bodyParser = require('body-parser');
+  const http = require("http");
   const app = express();
 
   let skill;
@@ -60,6 +61,6 @@
 
   });
 
-  app.listen(8080, function () {
-    console.log('Development endpoint listening on port 8080!');
-  });
+  // tell the server what port to listen on
+http.createServer(app).listen(process.env.PORT || 8080,"0.0.0.0");
+console.log('Listening on localhost:8080')
