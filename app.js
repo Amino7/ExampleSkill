@@ -19,7 +19,6 @@
             },
             handle(handlerInput) {
               const speechText = 'Welcome to the Alexa Skills Kit, you can say hello!';
-          
               return handlerInput.responseBuilder
                 .speak(speechText)
                 .reprompt(speechText)
@@ -35,6 +34,7 @@
             },
             async handle(handlerInput) {
               const speechText = await axios.get('https://securetestapi.herokuapp.com/alexa');
+              console.log(speechText);
               return handlerInput.responseBuilder
                 .speak(speechText)
                 .withSimpleCard('Hello World', speechText)
