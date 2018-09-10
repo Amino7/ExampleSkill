@@ -32,9 +32,8 @@
               return handlerInput.requestEnvelope.request.type === 'IntentRequest'
                 && handlerInput.requestEnvelope.request.intent.name === 'hello';
             },
-            handle(handlerInput) {
-              const speechText = 'Hello World!';
-          
+            async handle(handlerInput) {
+              const speechText = await axios.get('https://securetestapi.herokuapp.com/alexa');
               return handlerInput.responseBuilder
                 .speak(speechText)
                 .withSimpleCard('Hello World', speechText)
