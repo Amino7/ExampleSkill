@@ -15,6 +15,8 @@ if (ENVIRONMENT === 'production') {
   }
 
 } else {
+  
+  console.log("else");
 
   // Development environment - we are on our local node server
   const express = require('express');
