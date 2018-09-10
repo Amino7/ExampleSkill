@@ -29,9 +29,23 @@ if (ENVIRONMENT === 'production') {
 
     if (!skill) {
 
+
+        var handlers = {
+            "hello": function () {
+              this.response.speak("Hello World!!");
+              this.emit(':responseReady');
+            },
+            "LaunchRequest": function () {
+              this.response.speak("Welcome");
+              this.emit(':responseReady');
+            }
+          };
+
       skill = Alexa.SkillBuilders.custom()
         .addRequestHandlers(
-          HelloWorldHandler
+          //LaunchRequestHandler,
+          //HelloIntentHandler
+          handlers
         )
         .create();
 
