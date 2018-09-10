@@ -29,23 +29,40 @@ if (ENVIRONMENT === 'production') {
 
     if (!skill) {
 
-
-        var handlers = {
-            "hello": function () {
-              this.response.speak("Hello World!!");
-              this.emit(':responseReady');
+        const LaunchRequestHandler = {
+            canHandle(handlerInput) {
+              return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
             },
-            "LaunchRequest": function () {
-              this.response.speak("Welcome");
-              this.emit(':responseReady');
+            handle(handlerInput) {
+              const speechText = 'Welcome to the Alexa Skills Kit, you can say hello!';
+          
+              return handlerInput.responseBuilder
+                .speak(speechText)
+                .reprompt(speechText)
+                .withSimpleCard('Hello World', speechText)
+                .getResponse();
+            }
+          };
+
+        const HelloIntentHandler = {
+            canHandle(handlerInput) {
+              return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+                && handlerInput.requestEnvelope.request.intent.name === 'hello';
+            },
+            handle(handlerInput) {
+              const speechText = 'Hello World!';
+          
+              return handlerInput.responseBuilder
+                .speak(speechText)
+                .withSimpleCard('Hello World', speechText)
+                .getResponse();
             }
           };
 
       skill = Alexa.SkillBuilders.custom()
         .addRequestHandlers(
-          //LaunchRequestHandler,
-          //HelloIntentHandler
-          handlers
+            LaunchRequestHandler,
+            HelloIntentHandler
         )
         .create();
 
