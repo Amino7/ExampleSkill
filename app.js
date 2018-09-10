@@ -33,7 +33,12 @@
                 && handlerInput.requestEnvelope.request.intent.name === 'hello';
             },
             async handle(handlerInput) {
-              const apiResponse = await axios.get('https://securetestapi.herokuapp.com/alexa');
+                let apiResponse;
+                try {
+                   apiResponse = await axios.get('https://securetestapi.herokuapp.com/alexa');
+                } catch(err) {
+                    console.log(err);
+                }
               const speechText = apiResponse.data;
               return handlerInput.responseBuilder
                 .speak(speechText)
