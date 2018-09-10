@@ -9,7 +9,7 @@
   app.post('/', function(req, res) {
 
     if (!skill) {
-
+        console.log("!skill");
         const LaunchRequestHandler = {
             canHandle(handlerInput) {
               return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
