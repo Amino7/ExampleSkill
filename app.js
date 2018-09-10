@@ -1,6 +1,7 @@
 const Alexa = require('ask-sdk');
 let skill;
 
+/*
 if (ENVIRONMENT === 'production') {
 
   exports.handler = async function (event, context) {
@@ -17,7 +18,7 @@ if (ENVIRONMENT === 'production') {
 } else {
   
   console.log("else");
-
+*/
   // Development environment - we are on our local node server
   const express = require('express');
   const bodyParser = require('body-parser');
@@ -51,4 +52,4 @@ if (ENVIRONMENT === 'production') {
     console.log('Development endpoint listening on port 3000!');
   });
 
-}
+//}
